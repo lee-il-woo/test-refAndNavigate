@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import { useRef, useEffect } from 'react';
+import PrevRef from './component/PrevRef';
+import DomRef from './component/DomRef';
+import RoteNavigate from './component/RoteNavigate';
+import { Routes, Route } from 'react-router-dom';
+import LocationState from './component/LocationState';
+import { Link } from 'react-router-dom';
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <DomRef/>
+    <PrevRef/>
+    <Link to="/navi"><button>/navi</button></Link>
+    <Routes>
+      <Route path="/navi" element={<RoteNavigate/>}></Route>
+      <Route path="/location" element={<LocationState/>}></Route>
+    </Routes>
+
+
     </div>
   );
 }
